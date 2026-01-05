@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fp-axioms-definitions-js-0.0.2">
+    <output-path>$PROJECT_DIR$/fp-axioms-definitions/build/libs</output-path>
+    <root id="archive" name="fp-axioms-definitions-js-0.0.2.jar">
+      <element id="module-output" name="fp-axioms.fp-axioms-definitions.jsMain" />
+    </root>
+  </artifact>
+</component>
