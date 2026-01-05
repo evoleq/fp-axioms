@@ -9,6 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/fp-axioms-definitions" />
+            <option value="$PROJECT_DIR$/fp-axioms-plugin" />
+            <option value="$PROJECT_DIR$/fp-axioms-processor" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -5,7 +5,7 @@ package org.evoleq.axioms.definition
 annotation class Lensify
 
 
-@Target(AnnotationTarget.PROPERTY)
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.SOURCE)
 annotation class ReadWrite
 

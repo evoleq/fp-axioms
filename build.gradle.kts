@@ -1,4 +1,34 @@
 plugins {
+    // Hier definieren wir nur die Versionen, ohne sie auf das Root-Projekt anzuwenden
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.ksp) apply false
+    id("com.android.library") version "8.2.0" apply false
+
+    `maven-publish`
+}
+
+allprojects {
+    group = "org.evoleq"
+    version = "0.0.2"
+
+    repositories {
+        mavenCentral()
+        google()
+        mavenLocal()
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx/dev") }
+        gradlePluginPortal()
+    }
+}
+
+// Hilfs-Task zum Aufräumen
+tasks.register<Delete>("cleanup") {
+    delete(rootProject.layout.buildDirectory)
+}
+
+
+/*
+plugins {
     kotlin("jvm") version "1.9.24"
     id("com.google.devtools.ksp") version "1.9.24-1.0.20"
     `java-gradle-plugin`
@@ -8,10 +38,11 @@ plugins {
 
 
 group = "org.evoleq"
-version = "0.0.1"
+version = "0.0.2"
 
 repositories {
     mavenCentral()
+    google()
 }
 
 dependencies {
@@ -95,4 +126,5 @@ publishing {
     }
 }
 
+ */
 

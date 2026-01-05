@@ -9,8 +9,8 @@ import org.evoleq.axioms.processor.functor.FunctorProcessor
 class AxiomsProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
         return MultiProcessor(listOf(
-            FunctorProcessor(environment.codeGenerator, environment.logger)
-
+            FunctorProcessor(environment.codeGenerator, environment.logger),
+            LensProcessor(environment.codeGenerator, environment.logger)
         ))
     }
 }
