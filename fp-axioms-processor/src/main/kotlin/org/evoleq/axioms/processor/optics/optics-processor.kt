@@ -30,7 +30,9 @@ class LensProcessor(
             val packageName = classDeclaration.packageName.asString()
             val className = classDeclaration.simpleName.asString()
             val classType = classDeclaration.asType(emptyList()).toTypeName()
-            
+            val fileName = with(classDeclaration.containingFile?.fileName?.substringBeforeLast(".kt")) {
+                if(this == null) "${className}Lenses" else "$this.lenses"
+            }
             // WICHTIG: Hier mappen wir die Sichtbarkeit manuell.
             // Wenn die Klasse PUBLIC ist, geben wir eine leere Liste zurück.
             // Dadurch wird im generierten Code KEIN Sichtbarkeits-Keywort (wie public) erzeugt.
@@ -41,7 +43,7 @@ class LensProcessor(
                 else -> emptyList() // Hier landet 'PUBLIC' -> führt zu keinem Keyword im Output
             }
 
-            val fileSpecBuilder = FileSpec.builder(packageName, "${className}Lenses")
+            val fileSpecBuilder = FileSpec.builder(packageName, fileName)
 
             classDeclaration.getAllProperties().forEach { prop ->
                 val propName = prop.simpleName.asString()
