@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "org.evoleq"
-version = "0.0.2"
+version = "0.0.3"
 
 dependencies {
     implementation(project(":fp-axioms-definitions"))

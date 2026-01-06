@@ -17,8 +17,13 @@ class FpAxiomsPlugin : Plugin<Project> {
         project.plugins.apply("com.google.devtools.ksp")
 
         project.afterEvaluate {
-            val definitionsDep = "org.evoleq:fp-axioms-definitions:$version"
-            val processorDep = "org.evoleq:fp-axioms-processor:$version"
+            // use the following after switch to sonatype.
+            // till the use jitpack and the jitpack group
+            // val definitionsDep = "org.evoleq:fp-axioms-definitions:$version"
+            // val processorDep = "org.evoleq:fp-axioms-processor:$version"
+            val jitpackGroup = "com.github.evoleq.fp-axioms"
+            val definitionsDep = "$jitpackGroup:fp-axioms-definitions:$version"
+            val processorDep = "$jitpackGroup:fp-axioms-processor:$version"
 
             val mppExtension = project.extensions.findByType(KotlinMultiplatformExtension::class.java)
 
