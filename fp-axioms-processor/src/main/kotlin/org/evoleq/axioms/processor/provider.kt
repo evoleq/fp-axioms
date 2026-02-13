@@ -5,12 +5,14 @@ import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
 import com.google.devtools.ksp.processing.SymbolProcessorProvider
 import org.evoleq.axioms.processor.framework.MultiProcessor
 import org.evoleq.axioms.processor.functor.FunctorProcessor
+import org.evoleq.axioms.processor.value.ValueProcessor
 
 class AxiomsProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
         return MultiProcessor(listOf(
             FunctorProcessor(environment.codeGenerator, environment.logger),
-            LensProcessor(environment.codeGenerator, environment.logger)
+            LensProcessor(environment.codeGenerator, environment.logger),
+            ValueProcessor(environment.codeGenerator, environment.logger)
         ))
     }
 }
