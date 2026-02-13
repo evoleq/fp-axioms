@@ -49,6 +49,9 @@ class ValueProcessor(
                     operator fun $className.getValue(thisRef: Any?, property: KProperty<*>): String {
                         return $propertyName
                     }
+                    
+                    fun $className.copy($propertyName: String = this.$propertyName): $className = $className($propertyName)
+                    
                 """.trimIndent().toByteArray()
                 )
             }
