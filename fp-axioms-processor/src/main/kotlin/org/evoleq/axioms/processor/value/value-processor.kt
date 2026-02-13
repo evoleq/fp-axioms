@@ -24,6 +24,11 @@ class ValueProcessor(
             val packageName = classDecl.packageName.asString()
             val className = classDecl.simpleName.asString()
 
+            val propertyName = classDecl.primaryConstructor?.parameters?.firstOrNull()?.name?.asString() ?: run {
+                unprocessed.add(symbol)
+                return@forEach
+            }
+
             val containingFile = symbol.containingFile ?: run {
                 unprocessed.add(symbol)
                 return@forEach
@@ -42,7 +47,7 @@ class ValueProcessor(
                     import kotlin.reflect.KProperty
 
                     operator fun $className.getValue(thisRef: Any?, property: KProperty<*>): String {
-                        return id
+                        return $propertyName
                     }
                 """.trimIndent().toByteArray()
                 )
