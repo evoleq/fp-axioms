@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.provideDelegate
+
 plugins {
     // Hier definieren wir nur die Versionen, ohne sie auf das Root-Projekt anzuwenden
     alias(libs.plugins.kotlin.jvm) apply false
@@ -7,10 +9,11 @@ plugins {
 
     `maven-publish`
 }
-
+val commonVersion = providers.gradleProperty("version").get()
+val commonGroup = providers.gradleProperty("group").get()
 allprojects {
-    group = "org.evoleq"
-    version = "0.0.2"
+    group = commonGroup
+    version = commonVersion
 
     repositories {
         mavenCentral()

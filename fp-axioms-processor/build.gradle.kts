@@ -3,9 +3,6 @@ plugins {
     `maven-publish`
 }
 
-group = "org.evoleq"
-version = "0.1.1"
-
 dependencies {
     implementation(project(":fp-axioms-definitions"))
     implementation(libs.ksp.api)

@@ -31,7 +31,7 @@ class FpAxiomsPlugin : Plugin<Project> {
                 // MULTIPLATFORM
                 // 1. Annotationen zum commonMain hinzufügen (damit sie überall verfügbar sind)
                 mppExtension.sourceSets.findByName("commonMain")?.dependencies {
-                    implementation(definitionsDep)
+                    api(definitionsDep)
                 }
 
                 // 2. Prozessor zu allen KSP-Konfigurationen (kspJvm, kspJs, etc.) hinzufügen
@@ -43,7 +43,7 @@ class FpAxiomsPlugin : Plugin<Project> {
             } else {
                 // SINGLE PLATFORM (JVM)
                 // 1. Annotationen für den Compile-Classpath
-                project.dependencies.add("implementation", definitionsDep)
+                project.dependencies.add("api", definitionsDep)
                 // 2. Prozessor für KSP
                 project.dependencies.add("ksp", processorDep)
             }

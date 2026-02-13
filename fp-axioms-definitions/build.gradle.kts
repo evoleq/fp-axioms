@@ -4,9 +4,6 @@ plugins {
     `maven-publish`
 }
 
-group = "org.evoleq"
-version = "0.1.1"
-
 kotlin {
     jvm()
     js(IR) { browser() }
